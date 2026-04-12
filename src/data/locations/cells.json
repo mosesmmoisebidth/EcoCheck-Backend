@@ -1,0 +1,807 @@
+[
+    {
+        "cellId":  1010101,
+        "cellName":  "Akabahizi",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010102,
+        "cellName":  "Akabeza",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010103,
+        "cellName":  "Gacyamo",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010104,
+        "cellName":  "Kigarama",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010105,
+        "cellName":  "Kinyange",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010106,
+        "cellName":  "Kora",
+        "sectorId":  10101
+    },
+    {
+        "cellId":  1010201,
+        "cellName":  "Nyamweru",
+        "sectorId":  10102
+    },
+    {
+        "cellId":  1010202,
+        "cellName":  "Nzove",
+        "sectorId":  10102
+    },
+    {
+        "cellId":  1010203,
+        "cellName":  "Taba",
+        "sectorId":  10102
+    },
+    {
+        "cellId":  1010301,
+        "cellName":  "Kigali",
+        "sectorId":  10103
+    },
+    {
+        "cellId":  1010302,
+        "cellName":  "Mwendo",
+        "sectorId":  10103
+    },
+    {
+        "cellId":  1010303,
+        "cellName":  "Nyabugogo",
+        "sectorId":  10103
+    },
+    {
+        "cellId":  1010304,
+        "cellName":  "Ruriba",
+        "sectorId":  10103
+    },
+    {
+        "cellId":  1010305,
+        "cellName":  "Rwesero",
+        "sectorId":  10103
+    },
+    {
+        "cellId":  1010401,
+        "cellName":  "Kamuhoza",
+        "sectorId":  10104
+    },
+    {
+        "cellId":  1010402,
+        "cellName":  "Katabaro",
+        "sectorId":  10104
+    },
+    {
+        "cellId":  1010403,
+        "cellName":  "Kimisagara",
+        "sectorId":  10104
+    },
+    {
+        "cellId":  1010501,
+        "cellName":  "Kankuba",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010502,
+        "cellName":  "Kavumu",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010503,
+        "cellName":  "Mataba",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010504,
+        "cellName":  "Ntungamo",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010505,
+        "cellName":  "Nyarufunzo",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010506,
+        "cellName":  "Nyarurenzi",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010507,
+        "cellName":  "Runzenze",
+        "sectorId":  10105
+    },
+    {
+        "cellId":  1010601,
+        "cellName":  "Amahoro",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010602,
+        "cellName":  "Kabasengerezi",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010603,
+        "cellName":  "Kabeza",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010604,
+        "cellName":  "Nyabugogo",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010605,
+        "cellName":  "Rugenge",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010606,
+        "cellName":  "Tetero",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010607,
+        "cellName":  "Ubumwe",
+        "sectorId":  10106
+    },
+    {
+        "cellId":  1010701,
+        "cellName":  "Munanira I",
+        "sectorId":  10107
+    },
+    {
+        "cellId":  1010702,
+        "cellName":  "Munanira Ii",
+        "sectorId":  10107
+    },
+    {
+        "cellId":  1010703,
+        "cellName":  "Nyakabanda I",
+        "sectorId":  10107
+    },
+    {
+        "cellId":  1010704,
+        "cellName":  "Nyakabanda Ii",
+        "sectorId":  10107
+    },
+    {
+        "cellId":  1010801,
+        "cellName":  "Cyivugiza",
+        "sectorId":  10108
+    },
+    {
+        "cellId":  1010802,
+        "cellName":  "Gasharu",
+        "sectorId":  10108
+    },
+    {
+        "cellId":  1010803,
+        "cellName":  "Mumena",
+        "sectorId":  10108
+    },
+    {
+        "cellId":  1010804,
+        "cellName":  "Rugarama",
+        "sectorId":  10108
+    },
+    {
+        "cellId":  1010901,
+        "cellName":  "Agatare",
+        "sectorId":  10109
+    },
+    {
+        "cellId":  1010902,
+        "cellName":  "Biryogo",
+        "sectorId":  10109
+    },
+    {
+        "cellId":  1010903,
+        "cellName":  "Kiyovu",
+        "sectorId":  10109
+    },
+    {
+        "cellId":  1010904,
+        "cellName":  "Rwampara",
+        "sectorId":  10109
+    },
+    {
+        "cellId":  1011001,
+        "cellName":  "Kabuguru I",
+        "sectorId":  10110
+    },
+    {
+        "cellId":  1011002,
+        "cellName":  "Kabuguru Ii",
+        "sectorId":  10110
+    },
+    {
+        "cellId":  1011003,
+        "cellName":  "Rwezamenyo I",
+        "sectorId":  10110
+    },
+    {
+        "cellId":  1011004,
+        "cellName":  "Rwezamenyo Ii",
+        "sectorId":  10110
+    },
+    {
+        "cellId":  1020101,
+        "cellName":  "Kinyaga",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020102,
+        "cellName":  "Musave",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020103,
+        "cellName":  "Mvuzo",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020104,
+        "cellName":  "Ngara",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020105,
+        "cellName":  "Nkuzuzu",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020106,
+        "cellName":  "Nyabikenke",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020107,
+        "cellName":  "Nyagasozi",
+        "sectorId":  10201
+    },
+    {
+        "cellId":  1020201,
+        "cellName":  "Karuruma",
+        "sectorId":  10202
+    },
+    {
+        "cellId":  1020202,
+        "cellName":  "Nyamabuye",
+        "sectorId":  10202
+    },
+    {
+        "cellId":  1020203,
+        "cellName":  "Nyamugari",
+        "sectorId":  10202
+    },
+    {
+        "cellId":  1020301,
+        "cellName":  "Gasagara",
+        "sectorId":  10203
+    },
+    {
+        "cellId":  1020302,
+        "cellName":  "Gicaca",
+        "sectorId":  10203
+    },
+    {
+        "cellId":  1020303,
+        "cellName":  "Kibara",
+        "sectorId":  10203
+    },
+    {
+        "cellId":  1020304,
+        "cellName":  "Munini",
+        "sectorId":  10203
+    },
+    {
+        "cellId":  1020305,
+        "cellName":  "Murambi",
+        "sectorId":  10203
+    },
+    {
+        "cellId":  1020401,
+        "cellName":  "Musezero",
+        "sectorId":  10204
+    },
+    {
+        "cellId":  1020402,
+        "cellName":  "Ruhango",
+        "sectorId":  10204
+    },
+    {
+        "cellId":  1020501,
+        "cellName":  "Akamatamu",
+        "sectorId":  10205
+    },
+    {
+        "cellId":  1020502,
+        "cellName":  "Bweramvura",
+        "sectorId":  10205
+    },
+    {
+        "cellId":  1020503,
+        "cellName":  "Kabuye",
+        "sectorId":  10205
+    },
+    {
+        "cellId":  1020504,
+        "cellName":  "Kidashya",
+        "sectorId":  10205
+    },
+    {
+        "cellId":  1020505,
+        "cellName":  "Ngiryi",
+        "sectorId":  10205
+    },
+    {
+        "cellId":  1020601,
+        "cellName":  "Agateko",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020602,
+        "cellName":  "Buhiza",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020603,
+        "cellName":  "Muko",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020604,
+        "cellName":  "Nkusi",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020605,
+        "cellName":  "Nyabuliba",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020606,
+        "cellName":  "Nyakabungo",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020607,
+        "cellName":  "Nyamitanga",
+        "sectorId":  10206
+    },
+    {
+        "cellId":  1020701,
+        "cellName":  "Kamatamu",
+        "sectorId":  10207
+    },
+    {
+        "cellId":  1020702,
+        "cellName":  "Kamutwa",
+        "sectorId":  10207
+    },
+    {
+        "cellId":  1020703,
+        "cellName":  "Kibaza",
+        "sectorId":  10207
+    },
+    {
+        "cellId":  1020801,
+        "cellName":  "Kamukina",
+        "sectorId":  10208
+    },
+    {
+        "cellId":  1020802,
+        "cellName":  "Kimihurura",
+        "sectorId":  10208
+    },
+    {
+        "cellId":  1020803,
+        "cellName":  "Rugando",
+        "sectorId":  10208
+    },
+    {
+        "cellId":  1020901,
+        "cellName":  "Bibare",
+        "sectorId":  10209
+    },
+    {
+        "cellId":  1020902,
+        "cellName":  "Kibagabaga",
+        "sectorId":  10209
+    },
+    {
+        "cellId":  1020903,
+        "cellName":  "Nyagatovu",
+        "sectorId":  10209
+    },
+    {
+        "cellId":  1021001,
+        "cellName":  "Gacuriro",
+        "sectorId":  10210
+    },
+    {
+        "cellId":  1021002,
+        "cellName":  "Gasharu",
+        "sectorId":  10210
+    },
+    {
+        "cellId":  1021003,
+        "cellName":  "Kagugu",
+        "sectorId":  10210
+    },
+    {
+        "cellId":  1021004,
+        "cellName":  "Murama",
+        "sectorId":  10210
+    },
+    {
+        "cellId":  1021101,
+        "cellName":  "Bwiza",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021102,
+        "cellName":  "Cyaruzinge",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021103,
+        "cellName":  "Kibenga",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021104,
+        "cellName":  "Masoro",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021105,
+        "cellName":  "Mukuyu",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021106,
+        "cellName":  "Rudashya",
+        "sectorId":  10211
+    },
+    {
+        "cellId":  1021201,
+        "cellName":  "Butare",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021202,
+        "cellName":  "Gasanze",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021203,
+        "cellName":  "Gasura",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021204,
+        "cellName":  "Gatunga",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021205,
+        "cellName":  "Muremure",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021206,
+        "cellName":  "Sha",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021207,
+        "cellName":  "Shango",
+        "sectorId":  10212
+    },
+    {
+        "cellId":  1021301,
+        "cellName":  "Nyabisindu",
+        "sectorId":  10213
+    },
+    {
+        "cellId":  1021302,
+        "cellName":  "Nyarutarama",
+        "sectorId":  10213
+    },
+    {
+        "cellId":  1021303,
+        "cellName":  "Rukiri I",
+        "sectorId":  10213
+    },
+    {
+        "cellId":  1021304,
+        "cellName":  "Rukiri Ii",
+        "sectorId":  10213
+    },
+    {
+        "cellId":  1021401,
+        "cellName":  "Bisenga",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021402,
+        "cellName":  "Gasagara",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021403,
+        "cellName":  "Kabuga I",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021404,
+        "cellName":  "Kabuga Ii",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021405,
+        "cellName":  "Kinyana",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021406,
+        "cellName":  "Mbandazi",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021407,
+        "cellName":  "Nyagahinga",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021408,
+        "cellName":  "Ruhanga",
+        "sectorId":  10214
+    },
+    {
+        "cellId":  1021501,
+        "cellName":  "Gasabo",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1021502,
+        "cellName":  "Indatemwa",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1021503,
+        "cellName":  "Kabaliza",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1021504,
+        "cellName":  "Kacyatwa",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1021505,
+        "cellName":  "Kibenga",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1021506,
+        "cellName":  "Kigabiro",
+        "sectorId":  10215
+    },
+    {
+        "cellId":  1030101,
+        "cellName":  "Gahanga",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030102,
+        "cellName":  "Kagasa",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030103,
+        "cellName":  "Karembure",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030104,
+        "cellName":  "Murinja",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030105,
+        "cellName":  "Nunga",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030106,
+        "cellName":  "Rwabutenge",
+        "sectorId":  10301
+    },
+    {
+        "cellId":  1030201,
+        "cellName":  "Gatenga",
+        "sectorId":  10302
+    },
+    {
+        "cellId":  1030202,
+        "cellName":  "Karambo",
+        "sectorId":  10302
+    },
+    {
+        "cellId":  1030203,
+        "cellName":  "Nyanza",
+        "sectorId":  10302
+    },
+    {
+        "cellId":  1030204,
+        "cellName":  "Nyarurama",
+        "sectorId":  10302
+    },
+    {
+        "cellId":  1030301,
+        "cellName":  "Kagunga",
+        "sectorId":  10303
+    },
+    {
+        "cellId":  1030302,
+        "cellName":  "Kanserege",
+        "sectorId":  10303
+    },
+    {
+        "cellId":  1030303,
+        "cellName":  "Kinunga",
+        "sectorId":  10303
+    },
+    {
+        "cellId":  1030401,
+        "cellName":  "Kanserege",
+        "sectorId":  10304
+    },
+    {
+        "cellId":  1030402,
+        "cellName":  "Muyange",
+        "sectorId":  10304
+    },
+    {
+        "cellId":  1030403,
+        "cellName":  "Rukatsa",
+        "sectorId":  10304
+    },
+    {
+        "cellId":  1030501,
+        "cellName":  "Busanza",
+        "sectorId":  10305
+    },
+    {
+        "cellId":  1030502,
+        "cellName":  "Kabeza",
+        "sectorId":  10305
+    },
+    {
+        "cellId":  1030503,
+        "cellName":  "Karama",
+        "sectorId":  10305
+    },
+    {
+        "cellId":  1030504,
+        "cellName":  "Rubirizi",
+        "sectorId":  10305
+    },
+    {
+        "cellId":  1030601,
+        "cellName":  "Gasharu",
+        "sectorId":  10306
+    },
+    {
+        "cellId":  1030602,
+        "cellName":  "Kagina",
+        "sectorId":  10306
+    },
+    {
+        "cellId":  1030603,
+        "cellName":  "Kicukiro",
+        "sectorId":  10306
+    },
+    {
+        "cellId":  1030604,
+        "cellName":  "Ngoma",
+        "sectorId":  10306
+    },
+    {
+        "cellId":  1030701,
+        "cellName":  "Bwerankori",
+        "sectorId":  10307
+    },
+    {
+        "cellId":  1030702,
+        "cellName":  "Karugira",
+        "sectorId":  10307
+    },
+    {
+        "cellId":  1030703,
+        "cellName":  "Kigarama",
+        "sectorId":  10307
+    },
+    {
+        "cellId":  1030704,
+        "cellName":  "Nyarurama",
+        "sectorId":  10307
+    },
+    {
+        "cellId":  1030705,
+        "cellName":  "Rwampara",
+        "sectorId":  10307
+    },
+    {
+        "cellId":  1030801,
+        "cellName":  "Ayabaraya",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030802,
+        "cellName":  "Cyimo",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030803,
+        "cellName":  "Gako",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030804,
+        "cellName":  "Gitaraga",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030805,
+        "cellName":  "Mbabe",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030806,
+        "cellName":  "Rusheshe",
+        "sectorId":  10308
+    },
+    {
+        "cellId":  1030901,
+        "cellName":  "Gatare",
+        "sectorId":  10309
+    },
+    {
+        "cellId":  1030902,
+        "cellName":  "Niboye",
+        "sectorId":  10309
+    },
+    {
+        "cellId":  1030903,
+        "cellName":  "Nyakabanda",
+        "sectorId":  10309
+    },
+    {
+        "cellId":  1031001,
+        "cellName":  "Kamashashi",
+        "sectorId":  10310
+    },
+    {
+        "cellId":  1031002,
+        "cellName":  "Nonko",
+        "sectorId":  10310
+    },
+    {
+        "cellId":  1031003,
+        "cellName":  "Rwimbogo",
+        "sectorId":  10310
+    }
+]

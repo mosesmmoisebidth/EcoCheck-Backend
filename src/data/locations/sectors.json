@@ -1,0 +1,177 @@
+[
+    {
+        "sectorId":  10101,
+        "sectorName":  "GITEGA",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10102,
+        "sectorName":  "KANYINYA",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10103,
+        "sectorName":  "KIGALI",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10104,
+        "sectorName":  "KIMISAGARA",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10105,
+        "sectorName":  "MAGERAGERE",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10106,
+        "sectorName":  "MUHIMA",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10107,
+        "sectorName":  "NYAKABANDA",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10108,
+        "sectorName":  "NYAMIRAMBO",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10109,
+        "sectorName":  "NYARUGENGE",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10110,
+        "sectorName":  "RWEZAMENYO",
+        "districtId":  101
+    },
+    {
+        "sectorId":  10201,
+        "sectorName":  "BUMBOGO",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10202,
+        "sectorName":  "GATSATA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10203,
+        "sectorName":  "GIKOMERO",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10204,
+        "sectorName":  "GISOZI",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10205,
+        "sectorName":  "JABANA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10206,
+        "sectorName":  "JALI",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10207,
+        "sectorName":  "KACYIRU",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10208,
+        "sectorName":  "KIMIHURURA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10209,
+        "sectorName":  "KIMIRONKO",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10210,
+        "sectorName":  "KINYINYA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10211,
+        "sectorName":  "NDERA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10212,
+        "sectorName":  "NDUBA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10213,
+        "sectorName":  "REMERA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10214,
+        "sectorName":  "RUSORORO",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10215,
+        "sectorName":  "RUTUNGA",
+        "districtId":  102
+    },
+    {
+        "sectorId":  10301,
+        "sectorName":  "GAHANGA",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10302,
+        "sectorName":  "GATENGA",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10303,
+        "sectorName":  "GIKONDO",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10304,
+        "sectorName":  "KAGARAMA",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10305,
+        "sectorName":  "KANOMBE",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10306,
+        "sectorName":  "KICUKIRO",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10307,
+        "sectorName":  "KIGARAMA",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10308,
+        "sectorName":  "MASAKA",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10309,
+        "sectorName":  "NIBOYE",
+        "districtId":  103
+    },
+    {
+        "sectorId":  10310,
+        "sectorName":  "NYARUGUNGA",
+        "districtId":  103
+    }
+]

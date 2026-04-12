@@ -1,0 +1,17 @@
+[
+    {
+        "districtId":  101,
+        "districtName":  "NYARUGENGE",
+        "provinceId":  1
+    },
+    {
+        "districtId":  102,
+        "districtName":  "GASABO",
+        "provinceId":  1
+    },
+    {
+        "districtId":  103,
+        "districtName":  "KICUKIRO",
+        "provinceId":  1
+    }
+]
