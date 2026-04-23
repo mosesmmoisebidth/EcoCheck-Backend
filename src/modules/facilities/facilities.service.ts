@@ -55,7 +55,7 @@ export class FacilitiesService {
   }
 
   async findAll(
-    user: { role: UserRole; district: string; sector: string },
+    user: { role: UserRole; district: string; sector: string; sub: string },
     search?: string,
     district?: string,
     sector?: string,
@@ -63,9 +63,7 @@ export class FacilitiesService {
     const qb = this.facilitiesRepository.createQueryBuilder('facility');
     qb.leftJoinAndSelect('facility.createdBy', 'createdBy');
     if (user.role === UserRole.HSO) {
-      qb.andWhere('LOWER(facility.sector) = :sector', {
-        sector: normalizeName(user.sector),
-      });
+      qb.andWhere('createdBy.id = :userId', { userId: user.sub });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),
@@ -96,15 +94,14 @@ export class FacilitiesService {
   }
 
   async findMarkers(
-    user: { role: UserRole; district: string; sector: string },
+    user: { role: UserRole; district: string; sector: string; sub: string },
     district?: string,
     sector?: string,
   ): Promise<FacilityEntity[]> {
     const qb = this.facilitiesRepository.createQueryBuilder('facility');
+    qb.leftJoin('facility.createdBy', 'createdBy');
     if (user.role === UserRole.HSO) {
-      qb.andWhere('LOWER(facility.sector) = :sector', {
-        sector: normalizeName(user.sector),
-      });
+      qb.andWhere('createdBy.id = :userId', { userId: user.sub });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),
@@ -169,6 +166,34 @@ export class FacilitiesService {
     const facility = await this.facilitiesRepository.findOne({
       where: { id },
     });
+    if (!facility) {
+      throw new NotFoundCustomException('Facility not found');
+    }
+    return facility;
+  }
+
+  async findOneForUser(
+    id: string,
+    user: { role: UserRole; district: string; sector: string; sub: string },
+  ): Promise<FacilityEntity> {
+    const qb = this.facilitiesRepository
+      .createQueryBuilder('facility')
+      .leftJoinAndSelect('facility.createdBy', 'createdBy')
+      .where('facility.id = :id', { id });
+
+    if (user.role === UserRole.HSO) {
+      qb.andWhere('createdBy.id = :userId', { userId: user.sub });
+    } else if (user.role === UserRole.DISTRICT_MANAGER) {
+      qb.andWhere('LOWER(facility.district) = :district', {
+        district: normalizeName(user.district),
+      });
+    } else if (user.role === UserRole.CITY_MANAGER) {
+      qb.andWhere('LOWER(facility.district) IN (:...districts)', {
+        districts: KIGALI_DISTRICTS_LOWER,
+      });
+    }
+
+    const facility = await qb.getOne();
     if (!facility) {
       throw new NotFoundCustomException('Facility not found');
     }

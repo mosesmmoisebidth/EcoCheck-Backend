@@ -89,9 +89,10 @@ export class InspectionsController {
   async findOne(
     @Req() request: Request,
     @Param('id') id: string,
+    @CurrentUser() user: JwtPayload,
   ): Promise<ResponseDto<InspectionResponseDto>> {
     const responseService = new ResponseService(request);
-    const inspection = await this.inspectionsService.findOne(id);
+    const inspection = await this.inspectionsService.findOneForUser(id, user);
     return responseService.makeResponse({
       message: 'Inspection loaded',
       payload: this.toResponse(inspection),

@@ -135,9 +135,10 @@ export class FacilitiesController {
   async findOne(
     @Req() request: Request,
     @Param('id') id: string,
+    @CurrentUser() user: JwtPayload,
   ): Promise<ResponseDto<FacilityResponseDto>> {
     const responseService = new ResponseService(request);
-    const facility = await this.facilitiesService.findOne(id);
+    const facility = await this.facilitiesService.findOneForUser(id, user);
     return responseService.makeResponse({
       message: 'Facility loaded',
       payload: this.toResponse(facility),

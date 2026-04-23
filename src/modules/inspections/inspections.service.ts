@@ -98,13 +98,7 @@ export class InspectionsService {
       .leftJoinAndSelect('inspection.facility', 'facility')
       .leftJoinAndSelect('inspection.createdBy', 'createdBy');
     if (user.role === UserRole.HSO) {
-      qb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      qb.andWhere('createdBy.id = :userId', { userId: user.sub });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),
@@ -154,6 +148,36 @@ export class InspectionsService {
       where: { id },
       relations: ['facility', 'createdBy', 'faults'],
     });
+    if (!inspection) {
+      throw new NotFoundCustomException('Inspection not found');
+    }
+    return inspection;
+  }
+
+  async findOneForUser(
+    id: string,
+    user: { role: UserRole; district: string; sector: string; sub: string },
+  ): Promise<InspectionEntity> {
+    const qb = this.inspectionsRepository
+      .createQueryBuilder('inspection')
+      .leftJoinAndSelect('inspection.facility', 'facility')
+      .leftJoinAndSelect('inspection.createdBy', 'createdBy')
+      .leftJoinAndSelect('inspection.faults', 'faults')
+      .where('inspection.id = :id', { id });
+
+    if (user.role === UserRole.HSO) {
+      qb.andWhere('createdBy.id = :userId', { userId: user.sub });
+    } else if (user.role === UserRole.DISTRICT_MANAGER) {
+      qb.andWhere('LOWER(facility.district) = :district', {
+        district: normalizeName(user.district),
+      });
+    } else if (user.role === UserRole.CITY_MANAGER) {
+      qb.andWhere('LOWER(facility.district) IN (:...districts)', {
+        districts: KIGALI_DISTRICTS_LOWER,
+      });
+    }
+
+    const inspection = await qb.getOne();
     if (!inspection) {
       throw new NotFoundCustomException('Inspection not found');
     }

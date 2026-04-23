@@ -238,7 +238,7 @@ export class UsersController {
     activationCode?: string,
     activationExpiresAt?: Date,
   ): Promise<{ activationCode?: string; activationExpiresAt?: Date }> {
-    if (!activationCode || !user.email || user.role !== UserRole.HSO) {
+    if (!activationCode || !user.email) {
       return { activationCode, activationExpiresAt };
     }
 
@@ -286,6 +286,7 @@ export class UsersController {
     code: string,
     expiresAt?: Date,
   ): { subject: string; text: string; html: string } {
+    const roleLabel = this.roleLabel(user.role);
     const appUrl = readEnvValue(this.configService.get<string>('MOBILE_APP_URL'));
     const androidUrl = readEnvValue(
       this.configService.get<string>('MOBILE_ANDROID_URL'),
@@ -297,11 +298,11 @@ export class UsersController {
 
     const appLines = [appUrl, androidUrl, iosUrl].filter(Boolean) as string[];
     const appText = appLines.length
-      ? `Download the HSO mobile app:\n${appLines.join('\n')}`
-      : 'Download the HSO mobile app from your organization or app store.';
+      ? `Open the mobile app to activate your account:\n${appLines.join('\n')}`
+      : 'Open the mobile app to activate your account.';
 
-    const subject = 'Your HSO activation code';
-    const text = `Hello ${user.fullName},\n\nYour HSO account has been created. Use this activation code to set your password in the mobile app:\n\n${code}\n\n${expiryText}\n\n${appText}\n\nIf you did not request this account, please ignore this email.`;
+    const subject = 'Your account activation code';
+    const text = `Hello ${user.fullName},\n\nYour ${roleLabel} account has been created. Use this activation code to set your password in the mobile app:\n\n${code}\n\n${expiryText}\n\n${appText}\n\nIf you did not request this account, please ignore this email.`;
 
     const linksHtml = appLines.length
       ? appLines
@@ -312,7 +313,7 @@ export class UsersController {
     const html = `
       <div style="font-family: Arial, sans-serif; color: #0f172a;">
         <p>Hello ${user.fullName},</p>
-        <p>Your HSO account has been created. Use this activation code to set your password in the mobile app:</p>
+        <p>Your ${roleLabel} account has been created. Use this activation code to set your password in the mobile app:</p>
         <div style="font-size: 20px; font-weight: 700; letter-spacing: 2px; padding: 12px 16px; background: #f8fafc; border: 1px solid #e2e8f0; display: inline-block;">
           ${code}
         </div>
@@ -323,5 +324,22 @@ export class UsersController {
     `;
 
     return { subject, text, html };
+  }
+
+  private roleLabel(role: UserRole): string {
+    switch (role) {
+      case UserRole.HSO:
+        return 'HSO';
+      case UserRole.DISTRICT_MANAGER:
+        return 'District Manager';
+      case UserRole.CITY_MANAGER:
+        return 'City Manager';
+      case UserRole.ADMIN:
+        return 'Admin';
+      case UserRole.SUPER_ADMIN:
+        return 'Super Admin';
+      default:
+        return 'User';
+    }
   }
 }

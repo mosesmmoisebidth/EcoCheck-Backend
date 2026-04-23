@@ -185,20 +185,8 @@ export class SyncService {
       .where('inspection.syncStatus = :status', { status: SyncStatus.CONFLICT });
 
     if (user.role === UserRole.HSO) {
-      facilityQb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
-      inspectionQb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      facilityQb.andWhere('createdBy.id = :userId', { userId: user.sub });
+      inspectionQb.andWhere('createdBy.id = :userId', { userId: user.sub });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       facilityQb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),
@@ -233,20 +221,8 @@ export class SyncService {
       .leftJoinAndSelect('inspection.createdBy', 'createdBy');
 
     if (user.role === UserRole.HSO) {
-      facilityQb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
-      inspectionQb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      facilityQb.andWhere('createdBy.id = :userId', { userId: user.sub });
+      inspectionQb.andWhere('createdBy.id = :userId', { userId: user.sub });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       facilityQb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),

@@ -89,13 +89,9 @@ export class ReportsService {
       .leftJoinAndSelect('inspection.createdBy', 'createdBy');
 
     if (user.role === UserRole.HSO) {
-      qbBase.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      qbBase.andWhere('createdBy.id = :userId', {
+        userId: user.sub,
+      });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qbBase.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),
@@ -210,13 +206,9 @@ export class ReportsService {
       .leftJoinAndSelect('faults.fault', 'fault');
 
     if (user.role === UserRole.HSO) {
-      qb.andWhere(
-        '(createdBy.id = :userId OR LOWER(facility.sector) = :sector)',
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      qb.andWhere('createdBy.id = :userId', {
+        userId: user.sub,
+      });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qb.andWhere('LOWER(facility.district) = :district', {
         district: normalizeName(user.district),

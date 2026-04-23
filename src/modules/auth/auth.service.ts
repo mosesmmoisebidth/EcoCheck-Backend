@@ -87,9 +87,6 @@ export class AuthService {
     if (!user) {
       throw new NotFoundCustomException('Email not found. Contact your admin.');
     }
-    if (user.role !== UserRole.HSO) {
-      throw new UnauthorizedCustomException('Invalid activation code');
-    }
     if (!user.activationCodeHash || !user.activationExpiresAt) {
       throw new BadRequestCustomException('Account is not pending activation');
     }
@@ -117,7 +114,7 @@ export class AuthService {
       .where('LOWER(user.email) = :identifier', { identifier })
       .getOne();
 
-    if (!user || user.role !== UserRole.HSO) {
+    if (!user) {
       throw new UnauthorizedCustomException('Invalid activation code');
     }
     if (!user.activationCodeHash || !user.activationExpiresAt) {

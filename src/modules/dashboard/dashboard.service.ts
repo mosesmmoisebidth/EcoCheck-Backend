@@ -212,13 +212,9 @@ export class DashboardService {
     aliases: { inspection: string; facility: string; createdBy: string },
   ) {
     if (user.role === UserRole.HSO) {
-      qb.andWhere(
-        `(${aliases.createdBy}.id = :userId OR LOWER(${aliases.facility}.sector) = :sector)`,
-        {
-          userId: user.sub,
-          sector: normalizeName(user.sector),
-        },
-      );
+      qb.andWhere(`${aliases.createdBy}.id = :userId`, {
+        userId: user.sub,
+      });
     } else if (user.role === UserRole.DISTRICT_MANAGER) {
       qb.andWhere(`LOWER(${aliases.facility}.district) = :district`, {
         district: normalizeName(user.district),

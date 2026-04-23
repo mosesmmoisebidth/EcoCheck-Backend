@@ -39,7 +39,10 @@ export class UsersService {
       throw new BadRequestCustomException('Email already exists');
     }
     const role = dto.role;
-    const password = role === UserRole.HSO ? undefined : dto.password?.trim();
+    const password = dto.password?.trim();
+    const shouldUseActivation =
+      role === UserRole.HSO ||
+      (this.supportsActivation(role) && (!password || password.length === 0));
     const activationTtlSeconds = parseDurationToSeconds(
       this.configService.get<string>('ACTIVATION_CODE_EXPIRE'),
       60 * 60 * 24,
@@ -50,7 +53,7 @@ export class UsersService {
     let activationCodeHash: string | null = null;
     let isActive = true;
 
-    if (role === UserRole.HSO) {
+    if (shouldUseActivation) {
       activationCode = this.generateActivationCode();
       activationExpiresAt = new Date(Date.now() + activationTtlSeconds * 1000);
       activationCodeHash = this.hashCode(activationCode);
@@ -140,8 +143,10 @@ export class UsersService {
 
   async regenerateActivation(id: string): Promise<CreateUserResult> {
     const user = await this.findOne(id);
-    if (user.role !== UserRole.HSO) {
-      throw new BadRequestCustomException('Activation is only available for HSOs');
+    if (!this.supportsActivation(user.role)) {
+      throw new BadRequestCustomException(
+        'Activation is not available for this role',
+      );
     }
     if (user.isActive) {
       throw new BadRequestCustomException('User is already active');
@@ -176,5 +181,13 @@ export class UsersService {
 
   private hashCode(value: string): string {
     return createHash('sha256').update(value).digest('hex');
+  }
+
+  private supportsActivation(role: UserRole): boolean {
+    return (
+      role === UserRole.HSO ||
+      role === UserRole.DISTRICT_MANAGER ||
+      role === UserRole.CITY_MANAGER
+    );
   }
 }
