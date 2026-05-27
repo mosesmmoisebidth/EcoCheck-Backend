@@ -80,24 +80,49 @@ export class FoodSafetyFaultsSeedService implements OnModuleInit {
     if (!type) {
       return;
     }
-    const existingCount = await this.faultsRepository
+    const existing = await this.faultsRepository
       .createQueryBuilder('fault')
       .leftJoin('fault.inspectionType', 'inspectionType')
       .where('inspectionType.id = :id', { id: type.id })
-      .getCount();
-    if (existingCount > 0) {
-      return;
+      .getMany();
+    const existingByName = new Map<string, (typeof existing)[number]>();
+    for (const fault of existing) {
+      existingByName.set(this.normalizeKey(fault.name), fault);
     }
-    const entities = FOOD_SAFETY_QUESTIONS.map((question) =>
-      this.faultsRepository.create({
-        inspectionType: type,
-        name: question.name,
-        category: question.category,
-        orderIndex: question.orderIndex,
-        standardFine: DEFAULT_FINE_RWF,
-        active: true,
-      }),
-    );
-    await this.faultsRepository.save(entities);
+
+    const toSave: typeof existing = [];
+    for (const question of FOOD_SAFETY_QUESTIONS) {
+      const key = this.normalizeKey(question.name);
+      const match = existingByName.get(key);
+      if (match) {
+        const needsUpdate =
+          match.category !== question.category ||
+          match.orderIndex !== question.orderIndex;
+        if (needsUpdate) {
+          match.category = question.category;
+          match.orderIndex = question.orderIndex;
+          toSave.push(match);
+        }
+      } else {
+        toSave.push(
+          this.faultsRepository.create({
+            inspectionType: type,
+            name: question.name,
+            category: question.category,
+            orderIndex: question.orderIndex,
+            standardFine: DEFAULT_FINE_RWF,
+            active: true,
+          }),
+        );
+      }
+    }
+
+    if (toSave.length > 0) {
+      await this.faultsRepository.save(toSave);
+    }
+  }
+
+  private normalizeKey(value: string): string {
+    return value.trim().toLowerCase().replace(/\s+/g, ' ');
   }
 }

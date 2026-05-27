@@ -83,6 +83,8 @@ export class FaultsController {
       name: fault.name,
       standardFine: fault.standardFine,
       active: fault.active,
+      category: fault.category ?? null,
+      orderIndex: fault.orderIndex ?? 0,
     };
   }
 }

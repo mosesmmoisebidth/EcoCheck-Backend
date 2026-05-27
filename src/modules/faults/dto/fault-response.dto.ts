@@ -15,4 +15,10 @@ export class FaultResponseDto {
 
   @ApiProperty()
   active: boolean;
+
+  @ApiProperty({ required: false, nullable: true })
+  category: string | null;
+
+  @ApiProperty()
+  orderIndex: number;
 }

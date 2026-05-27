@@ -18,6 +18,7 @@ import { MailModule } from './modules/mail/mail.module';
 import { StorageModule } from './modules/storage/storage.module';
 import { LocationsModule } from './modules/locations/locations.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { AiModule } from './modules/ai/ai.module';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     StorageModule,
     LocationsModule,
     DashboardModule,
+    AiModule,
   ],
   controllers: [],
   providers: [],
