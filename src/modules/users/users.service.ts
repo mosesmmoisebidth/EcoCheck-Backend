@@ -38,6 +38,30 @@ export class UsersService {
     if (existing) {
       throw new BadRequestCustomException('Email already exists');
     }
+    const phone = dto.phone?.trim();
+    if (phone) {
+      const existingByPhone = await this.usersRepository.findOne({
+        where: { phone },
+      });
+      if (existingByPhone) {
+        throw new BadRequestCustomException('Phone number already in use');
+      }
+    }
+    const fullNameNormalized = dto.fullName.trim();
+    const districtNormalized = dto.district.trim();
+    if (fullNameNormalized && districtNormalized) {
+      const existingByNameAndDistrict = await this.usersRepository
+        .createQueryBuilder('user')
+        .where('LOWER(user.fullName) = LOWER(:name)', { name: fullNameNormalized })
+        .andWhere('LOWER(user.district) = LOWER(:district)', { district: districtNormalized })
+        .andWhere('user.role = :role', { role: dto.role })
+        .getOne();
+      if (existingByNameAndDistrict) {
+        throw new BadRequestCustomException(
+          'A user with the same name and role already exists in this district',
+        );
+      }
+    }
     const role = dto.role;
     const password = dto.password?.trim();
     const shouldUseActivation =

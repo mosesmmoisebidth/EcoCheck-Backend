@@ -31,7 +31,7 @@ export class FaultsService {
     if (active !== undefined) {
       qb.andWhere('fault.active = :active', { active });
     }
-    qb.orderBy('fault.name', 'ASC');
+    qb.orderBy('fault.orderIndex', 'ASC').addOrderBy('fault.name', 'ASC');
     return qb.getMany();
   }
 

@@ -20,4 +20,12 @@ export class FaultEntity extends CommonEntity {
   @ApiProperty({ default: true })
   @Column({ default: true })
   active: boolean;
+
+  @ApiProperty({ required: false })
+  @Column({ name: 'category', type: 'text', nullable: true })
+  category?: string | null;
+
+  @ApiProperty({ default: 0 })
+  @Column({ name: 'orderIndex', default: 0 })
+  orderIndex: number;
 }

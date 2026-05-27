@@ -46,6 +46,20 @@ export class InspectionsService {
     if (!facility) {
       throw new NotFoundCustomException('Facility not found');
     }
+    const recentDuplicate = await this.inspectionsRepository
+      .createQueryBuilder('inspection')
+      .leftJoin('inspection.facility', 'facility')
+      .leftJoin('inspection.createdBy', 'createdBy')
+      .where('facility.id = :facilityId', { facilityId: dto.facilityId })
+      .andWhere('createdBy.id = :userId', { userId: user.id })
+      .andWhere('inspection.visitType = :visitType', { visitType: dto.visitType })
+      .andWhere("inspection.createdAt > NOW() - INTERVAL '60 seconds'")
+      .getOne();
+    if (recentDuplicate) {
+      throw new BadRequestCustomException(
+        'An identical inspection was just submitted. Please wait a moment before re-submitting.',
+      );
+    }
     const faults = await this.faultsRepository.find({
       where: { id: In(dto.selectedFaultIds) },
     });

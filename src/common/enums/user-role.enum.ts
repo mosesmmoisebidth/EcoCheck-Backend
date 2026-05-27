@@ -4,4 +4,5 @@ export enum UserRole {
   CITY_MANAGER = 'CITY_MANAGER',
   SUPER_ADMIN = 'SUPER_ADMIN',
   ADMIN = 'ADMIN',
+  MEMBER = 'MEMBER',
 }

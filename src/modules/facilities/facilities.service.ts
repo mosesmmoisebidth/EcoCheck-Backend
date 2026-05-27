@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { In, Repository } from 'typeorm';
+import { In, QueryFailedError, Repository } from 'typeorm';
 import { BadRequestCustomException } from 'src/common/http/exceptions/bad-request.exception';
 import { NotFoundCustomException } from 'src/common/http/exceptions/not-found.exception';
 import { ForbiddenCustomException } from 'src/common/http/exceptions/forbidden.exception';
@@ -29,17 +29,30 @@ export class FacilitiesService {
   ) {}
 
   async create(dto: CreateFacilityDto, user: UserEntity): Promise<FacilityEntity> {
+    const tinTrimmed = dto.tin.trim();
+    const nameTrimmed = dto.name.trim();
+    const ownerPhoneTrimmed = dto.ownerPhone.trim();
     const existing = await this.facilitiesRepository.findOne({
-      where: { tin: dto.tin },
+      where: { tin: tinTrimmed },
     });
     if (existing) {
       throw new BadRequestCustomException('TIN already exists');
     }
+    const sameNameAndOwner = await this.facilitiesRepository
+      .createQueryBuilder('facility')
+      .where('LOWER(facility.name) = LOWER(:name)', { name: nameTrimmed })
+      .andWhere('facility.ownerPhone = :phone', { phone: ownerPhoneTrimmed })
+      .getOne();
+    if (sameNameAndOwner) {
+      throw new BadRequestCustomException(
+        'A facility with the same name and owner phone already exists',
+      );
+    }
     const facility = this.facilitiesRepository.create({
-      name: dto.name.trim(),
-      tin: dto.tin.trim(),
+      name: nameTrimmed,
+      tin: tinTrimmed,
       ownerName: dto.ownerName.trim(),
-      ownerPhone: dto.ownerPhone.trim(),
+      ownerPhone: ownerPhoneTrimmed,
       ownerEmail: dto.ownerEmail?.trim(),
       district: dto.district.trim(),
       sector: dto.sector.trim(),
@@ -51,7 +64,16 @@ export class FacilitiesService {
       createdBy: user,
       syncStatus: SyncStatus.SYNCED,
     });
-    return this.facilitiesRepository.save(facility);
+    try {
+      return await this.facilitiesRepository.save(facility);
+    } catch (error) {
+      if (error instanceof QueryFailedError && /unique/i.test(error.message)) {
+        throw new BadRequestCustomException(
+          'A facility with the same details already exists',
+        );
+      }
+      throw error;
+    }
   }
 
   async findAll(
